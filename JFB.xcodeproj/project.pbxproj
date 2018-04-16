@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5206292B313B3BD78342FE5C /* Pods_JFBTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCA75E1E926C93269C3C408E /* Pods_JFBTests.framework */; };
+		912D4A6E2D7B478C786126FA /* Pods_JFB.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9BE529F2AB7D1B63621C2C38 /* Pods_JFB.framework */; };
 		FCF758D52084F650004CFF09 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF758D42084F650004CFF09 /* AppDelegate.swift */; };
 		FCF758D72084F650004CFF09 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FCF758D62084F650004CFF09 /* ViewController.swift */; };
 		FCF758DA2084F650004CFF09 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FCF758D82084F650004CFF09 /* Main.storyboard */; };
@@ -26,6 +28,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		41B9C00D91AD3F2510C003BB /* Pods-JFB.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFB.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JFB/Pods-JFB.debug.xcconfig"; sourceTree = "<group>"; };
+		940F62BA8C01ECCE2574DC0D /* Pods-JFBTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFBTests.debug.xcconfig"; path = "Pods/Target Support Files/Pods-JFBTests/Pods-JFBTests.debug.xcconfig"; sourceTree = "<group>"; };
+		9BE529F2AB7D1B63621C2C38 /* Pods_JFB.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JFB.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B8C1CFF3BB059E919B8DA2F0 /* Pods-JFBTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFBTests.release.xcconfig"; path = "Pods/Target Support Files/Pods-JFBTests/Pods-JFBTests.release.xcconfig"; sourceTree = "<group>"; };
+		BCA75E1E926C93269C3C408E /* Pods_JFBTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_JFBTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C7639950243EFB9A0710940A /* Pods-JFB.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-JFB.release.xcconfig"; path = "Pods/Target Support Files/Pods-JFB/Pods-JFB.release.xcconfig"; sourceTree = "<group>"; };
 		FCF758D12084F650004CFF09 /* JFB.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JFB.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FCF758D42084F650004CFF09 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FCF758D62084F650004CFF09 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -43,6 +51,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				912D4A6E2D7B478C786126FA /* Pods_JFB.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -50,18 +59,41 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5206292B313B3BD78342FE5C /* Pods_JFBTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		2F7B9BEC63B6EEEC027B7B0B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				41B9C00D91AD3F2510C003BB /* Pods-JFB.debug.xcconfig */,
+				C7639950243EFB9A0710940A /* Pods-JFB.release.xcconfig */,
+				940F62BA8C01ECCE2574DC0D /* Pods-JFBTests.debug.xcconfig */,
+				B8C1CFF3BB059E919B8DA2F0 /* Pods-JFBTests.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		BC1B95C7DF1E41B69FBC978E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9BE529F2AB7D1B63621C2C38 /* Pods_JFB.framework */,
+				BCA75E1E926C93269C3C408E /* Pods_JFBTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FCF758C82084F650004CFF09 = {
 			isa = PBXGroup;
 			children = (
 				FCF758D32084F650004CFF09 /* JFB */,
 				FCF758E82084F651004CFF09 /* JFBTests */,
 				FCF758D22084F650004CFF09 /* Products */,
+				2F7B9BEC63B6EEEC027B7B0B /* Pods */,
+				BC1B95C7DF1E41B69FBC978E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -103,9 +135,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCF758EE2084F651004CFF09 /* Build configuration list for PBXNativeTarget "JFB" */;
 			buildPhases = (
+				CCC1CE4D056BEA6A3B883577 /* [CP] Check Pods Manifest.lock */,
 				FCF758CD2084F650004CFF09 /* Sources */,
 				FCF758CE2084F650004CFF09 /* Frameworks */,
 				FCF758CF2084F650004CFF09 /* Resources */,
+				C6DC9256815BE5D65B19D365 /* [CP] Embed Pods Frameworks */,
+				23B25BD97063490B334C70BA /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -120,9 +155,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FCF758F12084F651004CFF09 /* Build configuration list for PBXNativeTarget "JFBTests" */;
 			buildPhases = (
+				A41497DCBDC62A769E480501 /* [CP] Check Pods Manifest.lock */,
 				FCF758E12084F651004CFF09 /* Sources */,
 				FCF758E22084F651004CFF09 /* Frameworks */,
 				FCF758E32084F651004CFF09 /* Resources */,
+				EBF0B6E42588347D806EB138 /* [CP] Embed Pods Frameworks */,
+				551B255AE1765744BAA51341 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -191,6 +229,105 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		23B25BD97063490B334C70BA /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JFB/Pods-JFB-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		551B255AE1765744BAA51341 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JFBTests/Pods-JFBTests-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A41497DCBDC62A769E480501 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JFBTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C6DC9256815BE5D65B19D365 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JFB/Pods-JFB-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		CCC1CE4D056BEA6A3B883577 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-JFB-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		EBF0B6E42588347D806EB138 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-JFBTests/Pods-JFBTests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FCF758CD2084F650004CFF09 /* Sources */ = {
@@ -356,14 +493,12 @@
 		};
 		FCF758EF2084F651004CFF09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 41B9C00D91AD3F2510C003BB /* Pods-JFB.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFB/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.jera.JFB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -373,14 +508,12 @@
 		};
 		FCF758F02084F651004CFF09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C7639950243EFB9A0710940A /* Pods-JFB.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFB/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.jera.JFB;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -390,16 +523,13 @@
 		};
 		FCF758F22084F651004CFF09 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 940F62BA8C01ECCE2574DC0D /* Pods-JFBTests.debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFBTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.jera.JFBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
@@ -410,16 +540,13 @@
 		};
 		FCF758F32084F651004CFF09 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B8C1CFF3BB059E919B8DA2F0 /* Pods-JFBTests.release.xcconfig */;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = JFBTests/Info.plist;
-				LD_RUNPATH_SEARCH_PATHS = (
-					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
-				);
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = br.com.jera.JFBTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 4.0;
