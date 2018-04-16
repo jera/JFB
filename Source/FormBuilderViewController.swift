@@ -15,17 +15,23 @@ class FormBuilderViewController: FormViewController {
         
         tableView.separatorStyle = .none
 
-//        var rules = RuleSet<String>()
-//        rules.add(rule: RuleRequired())
-//        rules.add(rule: RuleEmail())
-        
         form +++ Section("Dados do usuário")
             <<< MaterialTextRow() { row in
-                row.tag = "te xt"
-                row.rowType = .cpf
+                row.tag = "cpf"
+                row.fieldType = .cpf
                 row.placeholder = "Row"
                 row.add(rule: RuleCPF())
                 row.validationOptions = .validatesOnChange
+            }
+            <<< MaterialTextRow() { row in
+                row.tag = "text"
+                row.fieldType = .phone
+                row.placeholder = "Phone"
+            }
+            <<< MaterialTextRow() { row in
+                row.tag = "password"
+                row.fieldType = .password
+                row.placeholder = "Password"
             }
             <<< ButtonRow() { btn in
                 btn.title = "Submit"

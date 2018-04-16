@@ -9,10 +9,9 @@
 import UIKit
 import NSStringMask
 
-enum FormRowType {
+public enum TextFieldType {
     case email
     case password
-    case date
     case text
     case name
     case phone
@@ -37,19 +36,16 @@ enum FormRowType {
         case .phone:
             return UIKeyboardType.phonePad
         default:
-            return UIKeyboardType.decimalPad
+            return UIKeyboardType.default
         }
     }
     
     func applyMask(_ string: String?) -> String? {
-        
         switch self {
         case .phone:
             return NSStringMask.maskString(string, withPattern: "\\((\\d{2})\\) (\\d{5})-(\\d{4})")
-            
         case .cpf:
             return NSStringMask.maskString(string, withPattern: "(\\d{3}).(\\d{3}).(\\d{3})-(\\d{2})")
-            
         default:
             return string
         }

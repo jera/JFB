@@ -12,7 +12,7 @@ import Material
 
 final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
 
-    @IBOutlet weak var textField: TextField!
+    @IBOutlet private weak var textField: TextField!
     
     private var materialRow: MaterialTextRow {
         return row as! MaterialTextRow
@@ -23,15 +23,28 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
         textField.delegate = self
     }
     
+    open override func cellCanBecomeFirstResponder() -> Bool {
+        return !row.isDisabled && textField.canBecomeFirstResponder == true
+    }
+    
+    open override func cellBecomeFirstResponder(withDirection: Direction) -> Bool {
+        return textField.becomeFirstResponder()
+    }
+    
+    open override func cellResignFirstResponder() -> Bool {
+        return textField.resignFirstResponder()
+    }
+    
     override func setup() {
         super.setup()
         selectionStyle = .none
         
-        textField.clearButtonMode = .whileEditing
-        textField.placeholderVerticalOffset = 35.0
+        textField.detailColor = .red
         textField.detailVerticalOffset = 0
-    
-        height = { return 74 } // textField's height == 50 + margins top and bottom == 8
+        textField.placeholderVerticalOffset = 35.0
+        textField.clearButtonMode = .whileEditing
+        
+        height = { return 74 }
     }
     
     override func update() {
@@ -39,16 +52,21 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
         
         textField.text = materialRow.formattedText
         textField.placeholder = materialRow.placeholder
-        textField.keyboardType = materialRow.rowType.keyboardType
-        textField.detail = materialRow.validationErrors.first?.msg
-    }
+        
+        textField.keyboardType = materialRow.fieldType.keyboardType
     
-    override var canBecomeFirstResponder: Bool {
-        return true
+        textField.detail = materialRow.validationErrors.first?.msg
+        
+        textField.isVisibilityIconButtonEnabled = materialRow.fieldType == .password
     }
     
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
         materialRow.updateText(text: string)
+        return false
+    }
+    
+    func textFieldShouldClear(_ textField: UITextField) -> Bool {
+        materialRow.clearText()
         return false
     }
 }

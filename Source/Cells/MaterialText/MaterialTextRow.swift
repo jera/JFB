@@ -11,11 +11,11 @@ import Eureka
 
 final class MaterialTextRow: Row<MaterialTextFieldCell>, RowType {
     
-    open var rowType: FormRowType = .text
+    open var fieldType: TextFieldType = .text
     open var placeholder: String?
     
     var formattedText: String? {
-        return rowType.applyMask(value)
+        return fieldType.applyMask(value)
     }
 
     required init(tag: String?) {
@@ -41,9 +41,14 @@ final class MaterialTextRow: Row<MaterialTextFieldCell>, RowType {
             }
         }
         
-        if allText.count <= rowType.max {
+        if allText.count <= fieldType.max {
             value = allText.isEmpty ? nil : allText
             cell.update()
         }
+    }
+    
+    func clearText() {
+        value = nil
+        cell.update()
     }
 }
