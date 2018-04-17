@@ -9,13 +9,18 @@
 import UIKit
 import NSStringMask
 
+public enum LayoutType {
+    case material
+    case cupertino
+}
+
 public enum ValidationType {
-    case required
+    case cpf
     case email
+    case required
+    case regex(String)
     case maxLength(Int)
     case minLength(Int)
-    case cpf
-    case regex(String)
 }
 
 public enum TextFieldType {
@@ -33,19 +38,6 @@ public enum TextFieldType {
             return 11
         default:
             return Int.max
-        }
-    }
-    
-    var keyboardType: UIKeyboardType {
-        switch self {
-        case .email:
-            return UIKeyboardType.emailAddress
-        case .cpf:
-            return UIKeyboardType.numberPad
-        case .phone:
-            return UIKeyboardType.phonePad
-        default:
-            return UIKeyboardType.default
         }
     }
     

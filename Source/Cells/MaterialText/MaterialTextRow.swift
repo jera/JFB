@@ -19,7 +19,7 @@ final class MaterialTextRow: MaterialBaseRow<MaterialTextFieldCell>, RowType {
 
     required init(tag: String?) {
         super.init(tag: tag)
-        cellProvider = CellProvider<MaterialTextFieldCell>(nibName: "MaterialTextFieldCell")
+        cellProvider = CellProvider<MaterialTextFieldCell>()
     }
     
     func updateText(text: String, range: NSRange) {

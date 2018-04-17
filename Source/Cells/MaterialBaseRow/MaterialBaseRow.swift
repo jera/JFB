@@ -12,6 +12,7 @@ import Eureka
 class MaterialBaseRow<Cell: CellType>: Row<Cell> where Cell: BaseCell {
     
     open var placeholder: String?
+    
     open var tintColor: UIColor? {
         didSet { cell.update() }
     }

@@ -9,25 +9,23 @@
 import UIKit
 
 class ViewController: UIViewController {
-
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loadingx the view, typically from a nib.
-    }
     
     let loginForm: [JField] = [
-        JTextField(id: "email", type: TextFieldType.email, placeholder: "Email", validations: [.required, .email]),
-        JTextField(id: "password", type: TextFieldType.password, placeholder: "Senha", validations: [.required, .minLength(6)])
+        JTextField(id: "email", type: .email, placeholder: "Email", validations: [.required, .email]),
+        JTextField(id: "password", type: .password, placeholder: "Senha", validations: [.required, .minLength(6)]),
+        JTextField(id: "name", type: .name, placeholder: "Nome", validations: [.required]),
+        JTextField(id: "last_name", type: .name, placeholder: "Sobrenome")
     ]
     
-    @IBAction func buttonAction(_ sender: Any) {
-        let vc = FormBuilderViewController(fields: loginForm, delegate: self)
+    lazy var vc: FormBuilderViewController = { FormBuilderViewController(fields: loginForm, delegate: self) }()
+    
+    override func viewDidLoad() {
+        super.viewDidLoad()
+    
+        vc.submitText = "Enviar"
+    }
         
-//        vc.tintColor = .red
-//        vc.submitBackgroundColor = .brown
-//        vc.submitText = "SEND"
-//        vc.submitPulseColor = .yellow
-        
+    @IBAction func action(_ sender: Any) {
         let nv = UINavigationController(rootViewController: vc)
         present(nv, animated: true)
     }

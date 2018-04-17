@@ -64,7 +64,7 @@ public class FormBuilderViewController: FormViewController {
     
     public init(fields: [JField], delegate: FormBuilderDelegate?) {
         super.init(style: .plain)
-        
+    
         self.fields = fields
         self.delegate = delegate
         
@@ -87,6 +87,7 @@ public class FormBuilderViewController: FormViewController {
         
         setOnChangeValueToUpdateSubmitButton()
         applyLayoutForRows()
+        navigationAccessoryView.tintColor = tintColor
     }
     
     private func setOnChangeValueToUpdateSubmitButton() {

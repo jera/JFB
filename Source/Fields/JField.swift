@@ -12,3 +12,29 @@ public protocol JField {
     
     func build() -> BaseRow
 }
+
+func buildValidations(validations: [ValidationType]) -> RuleSet<String> {
+    var rules = RuleSet<String>()
+    validations.forEach { (type) in
+        switch type {
+        case .required:
+            rules.add(rule: RuleRequired(msg: ""))
+            
+        case .email:
+            rules.add(rule: RuleEmail())
+            
+        case .maxLength(let length):
+            rules.add(rule: RuleMaxLength(maxLength: UInt(length)))
+            
+        case .minLength(let length):
+            rules.add(rule: RuleMinLength(minLength: UInt(length)))
+            
+        case .cpf:
+            rules.add(rule: RuleCPF())
+            
+        case .regex(let regex):
+            rules.add(rule: RuleRegExp(regExpr: regex))
+        }
+    }
+    return rules
+}

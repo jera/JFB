@@ -15,6 +15,10 @@ public struct JTextField: JField {
     let placeholder: String?
     let validations: [ValidationType]
     
+    var ruleSet: RuleSet<String> {
+        return buildValidations(validations: validations)
+    }
+    
     public init(id: String, type: TextFieldType, placeholder: String? = nil, validations: [ValidationType] = []) {
         self.id = id
         self.type = type
@@ -26,33 +30,7 @@ public struct JTextField: JField {
         return MaterialTextRow(id) { (row) in
             row.fieldType = type
             row.placeholder = placeholder
-            row.add(ruleSet: buildValidations())
+            row.add(ruleSet: ruleSet)
         }
-    }
-    
-    private func buildValidations() -> RuleSet<String> {
-        var rules = RuleSet<String>()
-        validations.forEach { (type) in
-            switch type {
-            case .required:
-                rules.add(rule: RuleRequired(msg: ""))
-                
-            case .email:
-                rules.add(rule: RuleEmail())
-                
-            case .maxLength(let length):
-                rules.add(rule: RuleMaxLength(maxLength: UInt(length)))
-                
-            case .minLength(let length):
-                rules.add(rule: RuleMinLength(minLength: UInt(length)))
-                
-            case .cpf:
-                rules.add(rule: RuleCPF())
-                
-            case .regex(let regex):
-                rules.add(rule: RuleRegExp(regExpr: regex))
-            }
-        }
-        return rules
     }
 }
