@@ -14,6 +14,8 @@ public enum ValidationType {
     case email
     case maxLength(Int)
     case minLength(Int)
+    case cpf
+    case regex(String)
 }
 
 public enum TextFieldType {

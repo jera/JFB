@@ -10,7 +10,7 @@ import UIKit
 import Eureka
 import Material
 
-final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
+final class MaterialTextFieldCell: MaterialBaseField<String>, UITextFieldDelegate {
     
     @IBOutlet private weak var textField: TextField!
     
@@ -37,15 +37,12 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
     
     override func setup() {
         super.setup()
-        selectionStyle = .none
-        
+
         textField.detailColor = .red
         textField.detailVerticalOffset = 0
         textField.placeholderVerticalOffset = 35.0
         textField.clearButtonMode = .whileEditing
         textField.keyboardType = materialRow.fieldType.keyboardType
-        
-        height = { return 74 }
     }
     
     override func update() {
@@ -54,6 +51,10 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
         textField.text = materialRow.formattedText
         textField.placeholder = materialRow.placeholder
         textField.detail = materialRow.validationErrors.first?.msg
+        
+        textField.dividerActiveColor = materialRow.tintColor ?? textField.dividerActiveColor
+        textField.placeholderActiveColor = materialRow.tintColor ?? textField.placeholderActiveColor
+        
         textField.isVisibilityIconButtonEnabled = materialRow.fieldType == .password
     }
     

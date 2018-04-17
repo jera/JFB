@@ -45,6 +45,12 @@ public struct JTextField: JField {
                 
             case .minLength(let length):
                 rules.add(rule: RuleMinLength(minLength: UInt(length)))
+                
+            case .cpf:
+                rules.add(rule: RuleCPF())
+                
+            case .regex(let regex):
+                rules.add(rule: RuleRegExp(regExpr: regex))
             }
         }
         return rules

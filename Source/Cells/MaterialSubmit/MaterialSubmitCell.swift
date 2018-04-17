@@ -29,19 +29,22 @@ final class MaterialSubmitCell: Cell<String>, CellType {
         accessoryView = .none
         
         height = { return 82}
-        
-        submitButton.setTitleColor(.black, for: .normal)
-        submitButton.setBackgroundImage(UIImage.fromColor(color: .lightGray), for: .disabled)
     }
     
     override func update() {
         super.update()
         
+        submitButton.pulseColor = materialRow.pulseColor
+        submitButton.backgroundColor = materialRow.backgroundColor
         submitButton.setTitle(materialRow.submitTitle, for: .normal)
+        submitButton.setTitleColor(materialRow.textColor, for: .normal)
+        submitButton.setBackgroundImage(UIImage.fromColor(color: materialRow.disableColor), for: .disabled)
+        
         submitButton.isEnabled = formViewController()?.form.validate().isEmpty ?? false
     }
     
     @objc private func didTapSubmition() {
         formViewController()?.view.endEditing(true)
+        materialRow.submitBlock?()
     }
 }

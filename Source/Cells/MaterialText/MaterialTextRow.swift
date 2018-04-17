@@ -9,11 +9,10 @@
 import UIKit
 import Eureka
 
-final class MaterialTextRow: Row<MaterialTextFieldCell>, RowType {
+final class MaterialTextRow: MaterialBaseRow<MaterialTextFieldCell>, RowType {
     
     open var fieldType: TextFieldType = .text
-    open var placeholder: String?
-    
+
     var formattedText: String? {
         return fieldType.applyMask(value)
     }
@@ -50,10 +49,5 @@ final class MaterialTextRow: Row<MaterialTextFieldCell>, RowType {
             value = allText.isEmpty ? nil : allText
             cell.update()
         }
-    }
-    
-    func clearText() {
-        value = nil
-        cell.update()
     }
 }

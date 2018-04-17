@@ -21,14 +21,21 @@ class ViewController: UIViewController {
     ]
     
     @IBAction func buttonAction(_ sender: Any) {
-        let nv = UINavigationController(rootViewController: FormBuilderViewController(fields: loginForm, delegate: self))
+        let vc = FormBuilderViewController(fields: loginForm, delegate: self)
+        
+//        vc.tintColor = .red
+//        vc.submitBackgroundColor = .brown
+//        vc.submitText = "SEND"
+//        vc.submitPulseColor = .yellow
+        
+        let nv = UINavigationController(rootViewController: vc)
         present(nv, animated: true)
     }
 }
 
 extension ViewController: FormBuilderDelegate {
     
-    func formReceivedValues(_ values: [String: Any]) {
+    func formReceivedValues(_ values: [String: Any?]) {
         print(values)
     }
 }
