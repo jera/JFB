@@ -8,6 +8,7 @@
 
 import UIKit
 import NSStringMask
+import Eureka
 
 public enum TextFieldType {
     case email
@@ -50,4 +51,11 @@ public enum TextFieldType {
             return string
         }
     }
+}
+
+public enum ValidationType {
+    case required
+    case email
+    case maxLength(Int)
+    case minLength(Int)
 }

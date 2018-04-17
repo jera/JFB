@@ -23,7 +23,12 @@ final class MaterialTextRow: Row<MaterialTextFieldCell>, RowType {
         cellProvider = CellProvider<MaterialTextFieldCell>(nibName: "MaterialTextFieldCell")
     }
     
-    func updateText(text: String) {
+    func updateText(text: String, range: NSRange) {
+        if range.length == value?.count {
+            clearText()
+            return
+        }
+        
         var allText = value ?? ""
         
         if !text.isEmpty {

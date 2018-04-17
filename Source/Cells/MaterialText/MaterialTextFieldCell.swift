@@ -11,7 +11,7 @@ import Eureka
 import Material
 
 final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
-
+    
     @IBOutlet private weak var textField: TextField!
     
     private var materialRow: MaterialTextRow {
@@ -43,6 +43,7 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
         textField.detailVerticalOffset = 0
         textField.placeholderVerticalOffset = 35.0
         textField.clearButtonMode = .whileEditing
+        textField.keyboardType = materialRow.fieldType.keyboardType
         
         height = { return 74 }
     }
@@ -52,21 +53,33 @@ final class MaterialTextFieldCell: Cell<String>, CellType, UITextFieldDelegate {
         
         textField.text = materialRow.formattedText
         textField.placeholder = materialRow.placeholder
-        
-        textField.keyboardType = materialRow.fieldType.keyboardType
-    
         textField.detail = materialRow.validationErrors.first?.msg
-        
         textField.isVisibilityIconButtonEnabled = materialRow.fieldType == .password
     }
     
+    // MARK: - UITextFieldDelegate
+    
     func textField(_ textField: UITextField, shouldChangeCharactersIn range: NSRange, replacementString string: String) -> Bool {
-        materialRow.updateText(text: string)
+        materialRow.updateText(text: string, range: range)
         return false
     }
     
     func textFieldShouldClear(_ textField: UITextField) -> Bool {
         materialRow.clearText()
         return false
+    }
+    
+   func textFieldDidBeginEditing(_ textField: UITextField) {
+        formViewController()?.beginEditing(of: self)
+        formViewController()?.textInputDidBeginEditing(textField, cell: self)
+    }
+    
+    func textFieldDidEndEditing(_ textField: UITextField) {
+        formViewController()?.endEditing(of: self)
+        formViewController()?.textInputDidEndEditing(textField, cell: self)
+    }
+    
+    func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+        return formViewController()?.textInputShouldReturn(textField, cell: self) ?? true
     }
 }

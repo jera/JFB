@@ -10,36 +10,42 @@ import Eureka
 
 class FormBuilderViewController: FormViewController {
     
+    private var rows: [JRow] = []
+    
+    init(rows: [JRow]) {
+        super.init(style: .plain)
+        self.rows = rows
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        super.init(coder: aDecoder)
+    }
+    
+    private lazy var submitRow: MaterialSubmitRow = {
+        return MaterialSubmitRow()
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.separatorStyle = .none
+        
+        let section = Section()
+        
+        rows.map { $0.build() }
+            .forEach {[unowned self] (row) in
+                section <<< row
 
-        form +++ Section("Dados do usuário")
-            <<< MaterialTextRow() { row in
-                row.tag = "cpf"
-                row.fieldType = .cpf
-                row.placeholder = "Row"
-                row.add(rule: RuleCPF())
-                row.validationOptions = .validatesOnChange
-            }
-            <<< MaterialTextRow() { row in
-                row.tag = "text"
-                row.fieldType = .phone
-                row.placeholder = "Phone"
-            }
-            <<< MaterialTextRow() { row in
-                row.tag = "password"
-                row.fieldType = .password
-                row.placeholder = "Password"
-            }
-            <<< ButtonRow() { btn in
-                btn.title = "Submit"
-                
+                if let materialRow = row as? MaterialTextRow {
+                    materialRow.onChange({ (row) in
+                        self.submitRow.updateCell()
+                    })
                 }
-                .onCellSelection { cell, row in
-                    print("did select")
-                    print(self.form.values())
         }
+
+        submitRow.submitTitle = "Enviar"
+
+        form +++ section
+        form +++ submitRow
     }
 }
