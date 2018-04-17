@@ -8,16 +8,18 @@
 
 import Eureka
 
-class FormBuilderViewController: FormViewController {
+public class FormBuilderViewController: FormViewController {
     
-    private var rows: [JRow] = []
+    private var fields: [JField] = []
+    private weak var delegate: FormBuilderDelegate?
     
-    init(rows: [JRow]) {
+    public init(fields: [JField], delegate: FormBuilderDelegate?) {
         super.init(style: .plain)
-        self.rows = rows
+        self.fields = fields
+        self.delegate = delegate
     }
     
-    required init?(coder aDecoder: NSCoder) {
+    required public init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
     }
     
@@ -25,14 +27,14 @@ class FormBuilderViewController: FormViewController {
         return MaterialSubmitRow()
     }()
     
-    override func viewDidLoad() {
+    override public func viewDidLoad() {
         super.viewDidLoad()
         
         tableView.separatorStyle = .none
         
         let section = Section()
         
-        rows.map { $0.build() }
+        fields.map { $0.build() }
             .forEach {[unowned self] (row) in
                 section <<< row
 

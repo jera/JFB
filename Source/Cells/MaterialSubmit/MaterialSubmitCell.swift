@@ -31,7 +31,7 @@ final class MaterialSubmitCell: Cell<String>, CellType {
         height = { return 82}
         
         submitButton.setTitleColor(.black, for: .normal)
-        submitButton.setBackgroundImage(UIImage.fromColor(color: .gray), for: .disabled)
+        submitButton.setBackgroundImage(UIImage.fromColor(color: .lightGray), for: .disabled)
     }
     
     override func update() {
@@ -42,7 +42,6 @@ final class MaterialSubmitCell: Cell<String>, CellType {
     }
     
     @objc private func didTapSubmition() {
-        print("SHOW PORRA")
         formViewController()?.view.endEditing(true)
     }
 }

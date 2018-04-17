@@ -1,5 +1,5 @@
 //
-//  FormStructs.swift
+//  JTextField.swift
 //  JFB
 //
 //  Created by Vitor Mesquita on 16/04/2018.
@@ -8,19 +8,14 @@
 
 import Eureka
 
-public protocol JRow {
-    
-    func build() -> BaseRow
-}
-
-public struct JField: JRow {
+public struct JTextField: JField {
     
     let id: String
     let type: TextFieldType
     let placeholder: String?
     let validations: [ValidationType]
     
-    public init(id: String, type: TextFieldType, placeholder: String?, validations: [ValidationType] = []) {
+    public init(id: String, type: TextFieldType, placeholder: String? = nil, validations: [ValidationType] = []) {
         self.id = id
         self.type = type
         self.placeholder = placeholder
