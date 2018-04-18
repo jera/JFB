@@ -14,6 +14,9 @@
 		FC083C1320856E170026AAF9 /* MaterialSubmitCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FC083C1120856E170026AAF9 /* MaterialSubmitCell.xib */; };
 		FC083C1520856F8C0026AAF9 /* MaterialSubmitRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC083C1420856F8C0026AAF9 /* MaterialSubmitRow.swift */; };
 		FC083C17208574BB0026AAF9 /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC083C16208574BB0026AAF9 /* Extensions.swift */; };
+		FC15502420877D6F005AB853 /* MaterialDateCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC15502320877D6F005AB853 /* MaterialDateCell.swift */; };
+		FC15502620877DAA005AB853 /* MaterialDateRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC15502520877DAA005AB853 /* MaterialDateRow.swift */; };
+		FC1F25652087CB410045CB97 /* JTimeField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC1F25642087CB410045CB97 /* JTimeField.swift */; };
 		FC480E7920863253003C1043 /* FormBuilderDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC480E7820863253003C1043 /* FormBuilderDelegate.swift */; };
 		FC480E7C20863453003C1043 /* JField.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC480E7B20863453003C1043 /* JField.swift */; };
 		FC7B723B20851FE400FADB61 /* FormBuilderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FC7B723A20851FE400FADB61 /* FormBuilderViewController.swift */; };
@@ -56,6 +59,9 @@
 		FC083C1120856E170026AAF9 /* MaterialSubmitCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MaterialSubmitCell.xib; sourceTree = "<group>"; };
 		FC083C1420856F8C0026AAF9 /* MaterialSubmitRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialSubmitRow.swift; sourceTree = "<group>"; };
 		FC083C16208574BB0026AAF9 /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		FC15502320877D6F005AB853 /* MaterialDateCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDateCell.swift; sourceTree = "<group>"; };
+		FC15502520877DAA005AB853 /* MaterialDateRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialDateRow.swift; sourceTree = "<group>"; };
+		FC1F25642087CB410045CB97 /* JTimeField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JTimeField.swift; sourceTree = "<group>"; };
 		FC480E7820863253003C1043 /* FormBuilderDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilderDelegate.swift; sourceTree = "<group>"; };
 		FC480E7B20863453003C1043 /* JField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = JField.swift; sourceTree = "<group>"; };
 		FC7B723A20851FE400FADB61 /* FormBuilderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FormBuilderViewController.swift; sourceTree = "<group>"; };
@@ -144,9 +150,19 @@
 			children = (
 				FCD50FAA208642D100D7CFF2 /* MaterialBaseRow */,
 				FC083C07208561440026AAF9 /* MaterialText */,
+				FC15502220877D4D005AB853 /* MaterialDate */,
 				FC083C0F20856DD70026AAF9 /* MaterialSubmit */,
 			);
 			path = Material;
+			sourceTree = "<group>";
+		};
+		FC15502220877D4D005AB853 /* MaterialDate */ = {
+			isa = PBXGroup;
+			children = (
+				FC15502520877DAA005AB853 /* MaterialDateRow.swift */,
+				FC15502320877D6F005AB853 /* MaterialDateCell.swift */,
+			);
+			path = MaterialDate;
 			sourceTree = "<group>";
 		};
 		FC480E7A2086343D003C1043 /* Fields */ = {
@@ -155,6 +171,7 @@
 				FC480E7B20863453003C1043 /* JField.swift */,
 				FC083C0D2085673A0026AAF9 /* JTextField.swift */,
 				FCEFD258208690C200C0E43D /* JDateField.swift */,
+				FC1F25642087CB410045CB97 /* JTimeField.swift */,
 			);
 			path = Fields;
 			sourceTree = "<group>";
@@ -494,11 +511,14 @@
 				FC480E7C20863453003C1043 /* JField.swift in Sources */,
 				FCEFD259208690C200C0E43D /* JDateField.swift in Sources */,
 				FC480E7920863253003C1043 /* FormBuilderDelegate.swift in Sources */,
+				FC15502620877DAA005AB853 /* MaterialDateRow.swift in Sources */,
+				FC15502420877D6F005AB853 /* MaterialDateCell.swift in Sources */,
 				FC083C1220856E170026AAF9 /* MaterialSubmitCell.swift in Sources */,
 				FC7B7249208546C100FADB61 /* RuleCPF.swift in Sources */,
 				FCF758D52084F650004CFF09 /* AppDelegate.swift in Sources */,
 				FC083C1520856F8C0026AAF9 /* MaterialSubmitRow.swift in Sources */,
 				FCEFD2572086906F00C0E43D /* JSection.swift in Sources */,
+				FC1F25652087CB410045CB97 /* JTimeField.swift in Sources */,
 				FCEFD25C20869D2C00C0E43D /* MaterialAppearence.swift in Sources */,
 				FCD50FAC208642F000D7CFF2 /* MaterialBaseRow.swift in Sources */,
 				FC7B72432085295100FADB61 /* MaterialTextFieldCell.swift in Sources */,

@@ -10,6 +10,10 @@ import Eureka
 
 public protocol JField {
     
+    var id: String { get set }
+    var placeholder: String? { get set }
+    var validations: [ValidationType] { get set }
+    
     func build() -> BaseRow
 }
 

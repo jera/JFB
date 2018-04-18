@@ -11,9 +11,9 @@ import Eureka
 
 final class MaterialTextRow: MaterialBaseRow<MaterialTextFieldCell>, RowType {
     
-    open var fieldType: TextFieldType = .text
+    var fieldType: TextFieldType = .text
 
-    var formattedText: String? {
+    override var formattedText: String? {
         return fieldType.applyMask(value)
     }
 

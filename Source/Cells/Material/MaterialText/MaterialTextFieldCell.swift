@@ -24,9 +24,9 @@ final class MaterialTextFieldCell: MaterialBaseField<String> {
         super.update()
         
         field.text = materialRow.formattedText
+        
         field.placeholder = materialRow.placeholder
         field.detail = materialRow.validationErrors.first?.msg
-        
         field.dividerActiveColor = materialRow.tintColor ?? field.dividerActiveColor
         field.placeholderActiveColor = materialRow.tintColor ?? field.placeholderActiveColor
     }

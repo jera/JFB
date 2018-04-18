@@ -13,34 +13,34 @@ public class FormBuilderViewController: FormViewController {
     
     // MARK: - Public
     
-    ///
+    /// Color to apply at all input tint color and navigation accessory view
     open var tintColor: UIColor = Color.blue.base
     
-    ///
+    /// Text to show on submit button
     open var submitText: String? {
         set { submitRow.submitTitle = newValue }
         get { return submitRow.submitTitle }
     }
     
-    ///
+    /// Submit button's text color
     open var submitTextColor: UIColor {
         set { submitRow.textColor = newValue }
         get { return submitRow.textColor }
     }
     
-    ///
+    /// Submit button's background color
     open var submitBackgroundColor: UIColor {
         set { submitRow.backgroundColor = newValue }
         get { return submitRow.backgroundColor }
     }
     
-    ///
+    /// Submit button's background color when was disable
     open var submitDisableColor: UIColor {
         set { submitRow.disableColor = newValue }
         get { return submitRow.disableColor }
     }
     
-    ///
+    /// Submit button's click callback color
     open var submitPulseColor: UIColor {
         set { submitRow.pulseColor = newValue }
         get { return submitRow.pulseColor }
@@ -87,21 +87,38 @@ public class FormBuilderViewController: FormViewController {
         
         setOnChangeValueToUpdateSubmitButton()
         applyLayoutForRows()
-        navigationAccessoryView.tintColor = tintColor
     }
     
+    /// TODO refactor
     private func setOnChangeValueToUpdateSubmitButton() {
         form.allRows.forEach { (row) in
-            if let materialRow = row as? MaterialTextRow {
-                materialRow.onChange { (row) in self.submitRow.updateCell() }
+            
+            if let materialTextRow = row as? MaterialTextRow {
+                materialTextRow.onChange { (row) in self.submitRow.updateCell() }
+            }
+            
+            if let materialDateRow = row as? MaterialDateRow {
+                materialDateRow.onChange { (row) in self.submitRow.updateCell() }
+            }
+            
+            if let materialDateRow = row as? MaterialTimeRow {
+                materialDateRow.onChange { (row) in self.submitRow.updateCell() }
             }
         }
     }
     
+    /// TODO refactor
     private func applyLayoutForRows() {
+        navigationAccessoryView.tintColor = tintColor
+        
         form.allRows.forEach { (row) in
-            if let materialRow = row as? MaterialTextRow {
-                materialRow.tintColor = tintColor
+            
+            if let materialTextRow = row as? MaterialTextRow {
+                materialTextRow.tintColor = tintColor
+            }
+            
+            if let materialDateRow = row as? MaterialDateRow {
+                materialDateRow.tintColor = tintColor
             }
         }
     }

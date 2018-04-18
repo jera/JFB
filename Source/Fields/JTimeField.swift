@@ -1,36 +1,37 @@
 //
-//  JTextField.swift
+//  JTimeField.swift
 //  JFB
 //
-//  Created by Vitor Mesquita on 16/04/2018.
+//  Created by Vitor Mesquita on 18/04/2018.
 //  Copyright © 2018 Jera. All rights reserved.
 //
 
+import UIKit
 import Eureka
 
-public struct JTextField: JField {
+public struct JTimeField: JField {
     
     public var id: String
     public var placeholder: String?
     public var validations: [ValidationType]
     
-    let type: TextFieldType
+    var minInterval: Int?
     
     private var ruleSet: RuleSet<String> {
         return buildValidations(validations: validations)
     }
     
-    public init(id: String, type: TextFieldType, placeholder: String? = nil, validations: [ValidationType] = []) {
+    init(id: String, placeholder: String? = nil, validations: [ValidationType] = [], minInterval: Int? = nil) {
         self.id = id
-        self.type = type
         self.placeholder = placeholder
         self.validations = validations
+        self.minInterval = minInterval
     }
     
     public func build() -> BaseRow {
-        return MaterialTextRow(id) { (row) in
-            row.fieldType = type
+        return MaterialTimeRow(id) { row in
             row.placeholder = placeholder
+            row.minuteInterval = minInterval
             row.add(ruleSet: ruleSet)
         }
     }
