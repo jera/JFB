@@ -139,6 +139,16 @@
 			path = MaterialSubmit;
 			sourceTree = "<group>";
 		};
+		FC15502120877CC2005AB853 /* Material */ = {
+			isa = PBXGroup;
+			children = (
+				FCD50FAA208642D100D7CFF2 /* MaterialBaseRow */,
+				FC083C07208561440026AAF9 /* MaterialText */,
+				FC083C0F20856DD70026AAF9 /* MaterialSubmit */,
+			);
+			path = Material;
+			sourceTree = "<group>";
+		};
 		FC480E7A2086343D003C1043 /* Fields */ = {
 			isa = PBXGroup;
 			children = (
@@ -166,9 +176,7 @@
 		FC7B72402085291E00FADB61 /* Cells */ = {
 			isa = PBXGroup;
 			children = (
-				FCD50FAA208642D100D7CFF2 /* MaterialBaseRow */,
-				FC083C07208561440026AAF9 /* MaterialText */,
-				FC083C0F20856DD70026AAF9 /* MaterialSubmit */,
+				FC15502120877CC2005AB853 /* Material */,
 			);
 			path = Cells;
 			sourceTree = "<group>";
