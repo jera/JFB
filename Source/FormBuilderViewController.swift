@@ -58,13 +58,15 @@ public class FormBuilderViewController: FormViewController {
     private lazy var submitRow: MaterialSubmitRow = {
         return MaterialSubmitRow().didSubmit {[weak self] in
             guard let strongSelf = self else { return }
-            strongSelf.delegate?.formReceivedValues(strongSelf.form.values())
+            strongSelf.filterValuesToSubmit()
         }
     }()
     
+    // MARK: - Inits
+    
     public init(fields: [JField], delegate: FormBuilderDelegate?) {
         super.init(style: .plain)
-    
+        
         self.fields = fields
         self.delegate = delegate
         
@@ -77,6 +79,8 @@ public class FormBuilderViewController: FormViewController {
         super.init(coder: aDecoder)
     }
     
+    // MARK: - Lifecycle
+    
     override public func viewDidLoad() {
         super.viewDidLoad()
         
@@ -88,6 +92,8 @@ public class FormBuilderViewController: FormViewController {
         setOnChangeValueToUpdateSubmitButton()
         applyLayoutForRows()
     }
+    
+    // MARK: - Utils
     
     /// TODO refactor
     private func setOnChangeValueToUpdateSubmitButton() {
@@ -121,5 +127,14 @@ public class FormBuilderViewController: FormViewController {
                 materialDateRow.tintColor = tintColor
             }
         }
+    }
+    
+    ///
+    private func filterValuesToSubmit() {
+        let values = form.values()
+            .filter { $0.value != nil }
+            .mapValues { $0! }
+        
+        delegate?.formReceivedValues(values)
     }
 }

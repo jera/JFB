@@ -11,11 +11,11 @@ import UIKit
 class ViewController: UIViewController {
     
     let loginForm: [JField] = [
-//        JTextField(id: "email", type: .email, placeholder: "Email", validations: [.required, .email]),
-//        JTextField(id: "password", type: .password, placeholder: "Senha", validations: [.required, .minLength(6)]),
-//        JTextField(id: "name", type: .name, placeholder: "Nome", validations: [.required]),
-//        JTextField(id: "cpf", type: .cpf, placeholder: "CPF", validations: [.required, .cpf]),
-//        JTextField(id: "phone", type: .phone, placeholder: "Telefone", validations: [.required]),
+        JTextField(id: "email", type: .email, placeholder: "Email", validations: [.required, .email]),
+        JTextField(id: "password", type: .password, placeholder: "Senha", validations: [.required, .minLength(6)]),
+        JTextField(id: "name", type: .name, placeholder: "Nome", validations: [.required]),
+        JTextField(id: "cpf", type: .cpf, placeholder: "CPF", validations: [.required, .cpf]),
+        JTextField(id: "phone", type: .phone, placeholder: "Telefone", validations: [.required]),
         JDateField(id: "date", placeholder: "Data", validations: [.required]),
         JTimeField(id: "time", placeholder: "Hora", validations: [.required])
     ]
@@ -36,7 +36,7 @@ class ViewController: UIViewController {
 
 extension ViewController: FormBuilderDelegate {
     
-    func formReceivedValues(_ values: [String: Any?]) {
+    func formReceivedValues(_ values: [String: Any]) {
         print(values)
     }
 }

@@ -10,5 +10,5 @@ import Foundation
 
 public protocol FormBuilderDelegate: class {
     
-    func formReceivedValues(_ values: [String: Any?])
+    func formReceivedValues(_ values: [String: Any])
 }

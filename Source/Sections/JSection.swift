@@ -9,6 +9,5 @@
 import Eureka
 
 protocol JSection {
-
     func build() -> Section
 }

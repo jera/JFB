@@ -41,6 +41,16 @@ public enum TextFieldType {
         }
     }
     
+    var hasMask: Bool {
+        switch self {
+        case .cpf,
+             .phone:
+            return true
+        default:
+            return false
+        }
+    }
+    
     func applyMask(_ string: String?) -> String? {
         switch self {
         case .phone:
