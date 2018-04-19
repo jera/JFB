@@ -18,7 +18,6 @@ public struct JDateField: JField {
     var displayFormat: String
     var minDate: Date?
     var maxDate: Date?
-    var minInterval: Int?
     
     private var ruleSet: RuleSet<String> {
         return buildValidations(validations: validations)
@@ -29,7 +28,6 @@ public struct JDateField: JField {
          validations: [ValidationType] = [],
          minDate: Date? = nil,
          maxDate: Date? = nil,
-         minInterval: Int? = nil,
          displayFormat: String = "dd/MM/yyyy") {
         
         self.id = id
@@ -37,7 +35,6 @@ public struct JDateField: JField {
         self.validations = validations
         self.minDate = minDate
         self.maxDate = maxDate
-        self.minInterval = minInterval
         self.displayFormat = displayFormat
     }
 
@@ -46,7 +43,6 @@ public struct JDateField: JField {
             row.placeholder = placeholder
             row.minDate = minDate
             row.maxDate = maxDate
-            row.minuteInterval = minInterval
             row.displayFormat = displayFormat
             row.add(ruleSet: ruleSet)
         }
