@@ -135,6 +135,21 @@ open var submitPulseColor: UIColor
 
 If you want more customization please let we now, submit an issue explaning what kind of customization you need.
 
+## Validations
+
+Each field has its own validations, so when you'll create a field need to pass an Array of `ValidationType`.
+
+**ValidationType List**
+
+- cpf
+- email
+- required
+- regex
+- maxLength
+- minLength
+
+The validation is applied on real time (when user is typping) and error message is showing as well.
+
 ## Author
 
 Vitor Mesquita, vitor.mesquita09@gmail.com
