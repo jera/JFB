@@ -1,4 +1,4 @@
-<img src="https://github.com/vitormesquita/JFB/blob/develop/Assets/img_logo_jera.png">
+<img src="https://github.com/vitormesquita/JFB/blob/develop/Assets/img_logo_jera1.png">
 
 # J.F.B (Jera Form Builder)
 
