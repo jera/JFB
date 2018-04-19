@@ -24,4 +24,8 @@ Pod::Spec.new do |s|
     ss.dependency 'NSStringMask', '~> 1.2'
   end
 
+  s.resource_bundles = {
+    'JFB' => ['Assets/*.png']
+  }
+
 end
